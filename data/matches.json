@@ -1,0 +1,11 @@
+{
+  "matches": [
+    { "id": 101, "result": "Победа",    "kills": 15, "deaths": 3,  "map": "Dust II" },
+    { "id": 102, "result": "Поражение", "kills": 8,  "deaths": 12, "map": "Mirage" },
+    { "id": 103, "result": "Победа",    "kills": 22, "deaths": 5,  "map": "Inferno" },
+    { "id": 104, "result": "Победа",    "kills": 18, "deaths": 7,  "map": "Nuke" },
+    { "id": 105, "result": "Поражение", "kills": 4,  "deaths": 14, "map": "Overpass" },
+    { "id": 106, "result": "Победа",    "kills": 25, "deaths": 2,  "map": "Ancient" },
+    { "id": 107, "result": "Поражение", "kills": 11, "deaths": 11, "map": "Vertigo" }
+  ]
+}

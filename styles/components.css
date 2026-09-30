@@ -1,0 +1,348 @@
+/* styles/components.css */
+/* ==========================================================================
+   1. Карточка виджета — абсолютное позиционирование, острые углы
+   ========================================================================== */
+.widget {
+    background: var(--color-surface);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: var(--gap-md);
+    box-shadow: var(--shadow-widget);
+    display: flex;
+    flex-direction: column;
+    min-height: 260px;
+
+    /* ✅ Ключевое для свободного перетаскивания */
+    position: absolute;
+    width: 340px;
+
+    /* НЕ ставить overflow: hidden и transition: all */
+}
+
+.widget:hover {
+    border-color: var(--color-border-hover);
+    box-shadow: var(--shadow-widget-hover);
+}
+
+/* ✅ Состояние перетаскивания */
+.widget.is-dragging {
+    opacity: 0.9;
+    z-index: 1000;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7),
+                0 0 0 2px var(--color-accent);
+}
+
+/* ==========================================================================
+   2. Заголовок виджета — ручка перетаскивания
+   ========================================================================== */
+.widget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--color-border);
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    touch-action: none;
+}
+
+.widget-header:active {
+    cursor: grabbing;
+}
+
+.widget-title {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--color-heading);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   3. Кнопка закрытия
+   ========================================================================== */
+.widget-close-btn {
+    background: transparent;
+    border: 2px solid var(--color-border);
+    color: var(--color-text-muted);
+    font-size: 1.2rem;
+    line-height: 1;
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s ease;
+    padding: 0;
+    font-family: inherit;
+    /* Кнопка закрытия не должна запускать drag */
+    cursor: pointer !important;
+}
+
+.widget-close-btn:hover {
+    color: var(--color-bg);
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
+.widget-close-btn:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+/* ==========================================================================
+   4. Контент виджета
+   ========================================================================== */
+.widget-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+/* ==========================================================================
+   5. Кнопки внутри виджетов
+   ========================================================================== */
+.btn {
+    padding: 12px 16px;
+    border: 2px solid var(--color-accent);
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background-color: transparent;
+    color: var(--color-accent);
+    transition: all 0.15s ease;
+    font-family: inherit;
+}
+
+.btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.btn:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
+}
+
+.btn-refresh {
+    width: 100%;
+    margin-top: auto;
+}
+
+.btn-refresh:hover:not(:disabled) {
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+    box-shadow: 4px 4px 0 rgba(245, 166, 35, 0.4);
+    transform: translate(-2px, -2px);
+}
+
+.btn-refresh:active:not(:disabled) {
+    transform: translate(0, 0);
+    box-shadow: none;
+}
+
+/* ==========================================================================
+   6. Профиль игрока
+   ========================================================================== */
+.player-content {
+    gap: 10px;
+}
+
+.player-info p {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    padding: 8px 12px;
+    background: var(--color-accent-soft);
+    border-left: 3px solid var(--color-accent);
+    border-radius: var(--radius);
+    font-weight: 600;
+}
+
+.player-info p strong {
+    color: var(--color-text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    margin-right: 6px;
+}
+
+.player-name {
+    color: #ffffff;
+    font-weight: 800;
+}
+
+.player-level {
+    color: var(--color-accent);
+    font-weight: 800;
+}
+
+.player-rank {
+    color: var(--color-gold);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* ==========================================================================
+   7. Список матчей
+   ========================================================================== */
+.match-list {
+    list-style: none;
+    margin-bottom: 15px;
+    flex-grow: 1;
+    overflow-y: auto;
+    max-height: 260px;
+}
+
+.match-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 8px;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: background-color 0.15s ease;
+}
+
+.match-item:hover {
+    background-color: var(--color-accent-soft);
+}
+
+.match-item:last-child {
+    border-bottom: none;
+}
+
+.match-id {
+    color: var(--color-text);
+    font-weight: 600;
+}
+
+.match-result {
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: var(--radius);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 2px solid transparent;
+}
+
+.match-result.win {
+    background-color: var(--color-success-bg);
+    color: var(--color-success);
+    border-color: var(--color-success);
+}
+
+.match-result.loss {
+    background-color: var(--color-danger-bg);
+    color: var(--color-danger);
+    border-color: var(--color-danger);
+}
+
+/* ==========================================================================
+   8. Состояния
+   ========================================================================== */
+.widget-content .loading,
+.match-list li:only-child {
+    color: var(--color-text-muted);
+    font-style: italic;
+    font-weight: 500;
+}
+
+.match-list .error {
+    color: var(--color-danger);
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   9. Скроллбар
+   ========================================================================== */
+.match-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.match-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.match-list::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: var(--radius);
+}
+
+.match-list::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent);
+}
+/* ==========================================================================
+   10. Виджет статистики
+   ========================================================================== */
+.stats-content {
+    gap: 10px;
+}
+
+.stats-info p {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    padding: 8px 12px;
+    background: var(--color-accent-soft);
+    border-left: 3px solid var(--color-accent);
+    border-radius: var(--radius);
+    font-weight: 600;
+}
+
+.stats-info p strong {
+    color: var(--color-text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    margin-right: 6px;
+}
+
+/* Значения */
+.stats-kd {
+    font-weight: 800;
+    color: var(--color-text);
+}
+
+.stats-kd.kd-good {
+    color: var(--color-success);    /* CT-синий при K/D ≥ 1.2 */
+}
+
+.stats-kd.kd-bad {
+    color: var(--color-danger);     /* T-красный при K/D < 1.0 */
+}
+
+.stats-kills {
+    color: var(--color-accent);     /* оранжевый */
+    font-weight: 800;
+}
+
+.stats-deaths {
+    color: var(--color-text-muted);
+    font-weight: 800;
+}
+
+.stats-weapon {
+    color: var(--color-gold);       /* золотой */
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.stats-winrate {
+    color: var(--color-success);    /* CT-синий */
+    font-weight: 800;
+    font-size: 1.05rem;
+}

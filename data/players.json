@@ -1,0 +1,9 @@
+{
+  "results": [
+    { "name": "Shejoku", "level": 42, "rank": "Бронза" },
+    { "name": "Justry", "level": 87, "rank": "Алмаз"   },
+    { "name": "Kutis", "level": 50, "rank": "Серебро"  },
+    { "name": "Nik", "level": 63, "rank": "Золото"  },
+    { "name": "Spet3naZ", "level": 99, "rank": "Легенда" }
+  ]
+}

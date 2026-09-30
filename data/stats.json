@@ -1,0 +1,19 @@
+{
+  "stats": {
+    "kills": 1247,
+    "deaths": 892,
+    "favoriteWeapon": "AK-47",
+    "weaponKills": {
+      "AK-47": 412,
+      "AWP": 287,
+      "M4A4": 198,
+      "Desert Eagle": 156,
+      "USP-S": 94,
+      "Glock-18": 62,
+      "MP9": 38
+    },
+    "winRate": 63.4,
+    "matchesPlayed": 184,
+    "matchesWon": 117
+  }
+}
